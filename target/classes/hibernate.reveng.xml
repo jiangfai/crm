@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-schema="crm" match-name=".*"/>
+  <table-filter match-catalog="crm" match-name="crm_class"/>
+  <table-filter match-catalog="crm" match-name="crm_course_type"/>
+  <table-filter match-catalog="crm" match-name="crm_department"/>
+  <table-filter match-catalog="crm" match-name="crm_follow"/>
+  <table-filter match-catalog="crm" match-name="crm_graduate"/>
+  <table-filter match-catalog="crm" match-name="crm_post"/>
+  <table-filter match-catalog="crm" match-name="crm_refer"/>
+  <table-filter match-catalog="crm" match-name="crm_runoff"/>
+  <table-filter match-catalog="crm" match-name="crm_staff"/>
+  <table-filter match-catalog="crm" match-name="crm_station"/>
+  <table-filter match-catalog="crm" match-name="crm_student"/>
+</hibernate-reverse-engineering>

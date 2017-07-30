@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2017-7-24 17:26:15 by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="crm" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.crm.pojo.CrmRefer" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="crm_refer">
+        <id name="referId" type="java.lang.Long">
+            <column name="refer_id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="com.crm.pojo.CrmClass" embed-xml="true" fetch="select" insert="true" name="crmClass" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="class_id"/>
+        </many-to-one>
+        <many-to-one class="com.crm.pojo.CrmStaff" embed-xml="true" fetch="select" insert="true" name="crmStaff" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="staff_id"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="stuName" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="stu_name"/>
+        </property>
+        <property generated="never" lazy="false" name="telephone" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="telephone"/>
+        </property>
+        <property generated="never" lazy="false" name="qq" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="qq"/>
+        </property>
+        <property generated="never" lazy="false" name="createDate" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="create_date"/>
+        </property>
+        <property generated="never" lazy="false" name="intentionLevel" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="intention_level"/>
+        </property>
+        <property generated="never" lazy="false" name="courseTypeId" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="course_type_id"/>
+        </property>
+        <property generated="never" lazy="false" name="source" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="source"/>
+        </property>
+        <property generated="never" lazy="false" name="status" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="status"/>
+        </property>
+        <property generated="never" lazy="false" name="remark" optimistic-lock="true" type="string" unique="false">
+            <column length="500" name="remark"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="crmFollows" optimistic-lock="true" sort="unsorted" table="crm_follow">
+            <key on-delete="noaction">
+                <column name="refer_id"/>
+            </key>
+            <one-to-many class="com.crm.pojo.CrmFollow" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

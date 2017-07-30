@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2017-7-24 17:26:15 by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="crm" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.crm.pojo.CrmStudent" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="crm_student">
+        <id name="studentId" type="java.lang.Long">
+            <column name="student_id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="com.crm.pojo.CrmClass" embed-xml="true" fetch="select" insert="true" name="crmClass" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="class_id"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="stuName" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="stu_name"/>
+        </property>
+        <property generated="never" lazy="false" name="telephone" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="telephone"/>
+        </property>
+        <property generated="never" lazy="false" name="identity" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="identity"/>
+        </property>
+        <property generated="never" lazy="false" name="qq" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="qq"/>
+        </property>
+        <property generated="never" lazy="false" name="gender" optimistic-lock="true" type="string" unique="false">
+            <column length="1" name="gender"/>
+        </property>
+        <property generated="never" lazy="false" name="mustTuition" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="must_tuition"/>
+        </property>
+        <property generated="never" lazy="false" name="actualTuition" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="actual_tuition"/>
+        </property>
+        <property generated="never" lazy="false" name="email" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="email"/>
+        </property>
+        <property generated="never" lazy="false" name="school" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="school"/>
+        </property>
+        <property generated="never" lazy="false" name="education" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="education"/>
+        </property>
+        <property generated="never" lazy="false" name="professional" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="professional"/>
+        </property>
+        <property generated="never" lazy="false" name="identityAddress" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="identity_address"/>
+        </property>
+        <property generated="never" lazy="false" name="address" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="address"/>
+        </property>
+        <property generated="never" lazy="false" name="remark" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="remark"/>
+        </property>
+        <property generated="never" lazy="false" name="homeTelephone" optimistic-lock="true" type="string" unique="false">
+            <column length="11" name="home_telephone"/>
+        </property>
+        <property generated="never" lazy="false" name="homeContact" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="home_contact"/>
+        </property>
+        <property generated="never" lazy="false" name="status" optimistic-lock="true" type="string" unique="false">
+            <column length="3" name="status"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="crmRunoffs" optimistic-lock="true" sort="unsorted" table="crm_runoff">
+            <key on-delete="noaction">
+                <column name="student_id" not-null="true"/>
+            </key>
+            <one-to-many class="com.crm.pojo.CrmRunoff" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="crmGraduates" optimistic-lock="true" sort="unsorted" table="crm_graduate">
+            <key on-delete="noaction">
+                <column name="student_id"/>
+            </key>
+            <one-to-many class="com.crm.pojo.CrmGraduate" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="crmStations" optimistic-lock="true" sort="unsorted" table="crm_station">
+            <key on-delete="noaction">
+                <column name="student_id"/>
+            </key>
+            <one-to-many class="com.crm.pojo.CrmStation" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

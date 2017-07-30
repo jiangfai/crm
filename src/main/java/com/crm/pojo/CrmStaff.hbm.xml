@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2017-7-24 17:26:15 by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="crm" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.crm.pojo.CrmStaff" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="crm_staff">
+        <id name="staffId" type="long">
+            <column name="staff_id"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="com.crm.pojo.CrmPost" embed-xml="true" fetch="select" insert="true" name="crmPost" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="post_id"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="loginName" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="login_name"/>
+        </property>
+        <property generated="never" lazy="false" name="loginPwd" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="login_pwd"/>
+        </property>
+        <property generated="never" lazy="false" name="staffName" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="staff_name"/>
+        </property>
+        <property generated="never" lazy="false" name="gender" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="gender"/>
+        </property>
+        <property generated="never" lazy="false" name="onDutyDate" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="on_duty_date"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="crmFollows" optimistic-lock="true" sort="unsorted" table="crm_follow">
+            <key on-delete="noaction">
+                <column name="staff_id"/>
+            </key>
+            <one-to-many class="com.crm.pojo.CrmFollow" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="crmRunoffs" optimistic-lock="true" sort="unsorted" table="crm_runoff">
+            <key on-delete="noaction">
+                <column name="staff_id"/>
+            </key>
+            <one-to-many class="com.crm.pojo.CrmRunoff" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="crmStations" optimistic-lock="true" sort="unsorted" table="crm_station">
+            <key on-delete="noaction">
+                <column name="staff_id"/>
+            </key>
+            <one-to-many class="com.crm.pojo.CrmStation" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="crmRefers" optimistic-lock="true" sort="unsorted" table="crm_refer">
+            <key on-delete="noaction">
+                <column name="staff_id"/>
+            </key>
+            <one-to-many class="com.crm.pojo.CrmRefer" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2017-7-24 17:26:15 by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="crm" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.crm.pojo.CrmClass" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="crm_class">
+        <id name="classId" type="java.lang.Long">
+            <column name="class_id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="com.crm.pojo.CrmCourseType" embed-xml="true" fetch="select" insert="true" name="crmCourseType" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="course_type_id"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="className" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="class_name"/>
+        </property>
+        <property generated="never" lazy="false" name="beginTime" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="begin_time"/>
+        </property>
+        <property generated="never" lazy="false" name="endTime" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="end_time"/>
+        </property>
+        <property generated="never" lazy="false" name="status" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="status"/>
+        </property>
+        <property generated="never" lazy="false" name="totalCount" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="total_count"/>
+        </property>
+        <property generated="never" lazy="false" name="upgradeCount" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="upgrade_count"/>
+        </property>
+        <property generated="never" lazy="false" name="changeCount" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="change_count"/>
+        </property>
+        <property generated="never" lazy="false" name="runoffCount" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="runoff_count"/>
+        </property>
+        <property generated="never" lazy="false" name="remark" optimistic-lock="true" type="string" unique="false">
+            <column length="500" name="remark"/>
+        </property>
+        <property generated="never" lazy="false" name="uploadPath" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="upload_path"/>
+        </property>
+        <property generated="never" lazy="false" name="uploadFileName" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="upload_file_name"/>
+        </property>
+        <property generated="never" lazy="false" name="uploadTime" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="upload_time"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="crmStudents" optimistic-lock="true" sort="unsorted" table="crm_student">
+            <key on-delete="noaction">
+                <column name="class_id"/>
+            </key>
+            <one-to-many class="com.crm.pojo.CrmStudent" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="crmGraduates" optimistic-lock="true" sort="unsorted" table="crm_graduate">
+            <key on-delete="noaction">
+                <column name="class_id"/>
+            </key>
+            <one-to-many class="com.crm.pojo.CrmGraduate" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="crmRefers" optimistic-lock="true" sort="unsorted" table="crm_refer">
+            <key on-delete="noaction">
+                <column name="class_id"/>
+            </key>
+            <one-to-many class="com.crm.pojo.CrmRefer" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

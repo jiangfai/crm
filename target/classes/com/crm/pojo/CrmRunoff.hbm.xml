@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2017-7-24 17:26:15 by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="crm" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.crm.pojo.CrmRunoff" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="crm_runoff">
+        <id name="runOffId" type="java.lang.Long">
+            <column name="run_off_id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="com.crm.pojo.CrmStaff" embed-xml="true" fetch="select" insert="true" name="crmStaff" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="staff_id"/>
+        </many-to-one>
+        <many-to-one class="com.crm.pojo.CrmStudent" embed-xml="true" fetch="select" insert="true" name="crmStudent" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="student_id" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="createDate" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="create_date"/>
+        </property>
+        <property generated="never" lazy="false" name="isRefund" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="is_refund"/>
+        </property>
+        <property generated="never" lazy="false" name="refundAmount" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="refund_amount"/>
+        </property>
+        <property generated="never" lazy="false" name="remark" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="remark"/>
+        </property>
+    </class>
+</hibernate-mapping>

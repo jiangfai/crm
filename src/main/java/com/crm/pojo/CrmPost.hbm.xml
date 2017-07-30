@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2017-7-24 17:26:15 by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="crm" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.crm.pojo.CrmPost" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="crm_post">
+        <id name="postId" type="java.lang.Long">
+            <column name="post_id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="com.crm.pojo.CrmDepartment" embed-xml="true" fetch="select" insert="true" name="crmDepartment" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="dep_id"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="postName" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="post_name"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="crmStaffs" optimistic-lock="true" sort="unsorted" table="crm_staff">
+            <key on-delete="noaction">
+                <column name="post_id"/>
+            </key>
+            <one-to-many class="com.crm.pojo.CrmStaff" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>
